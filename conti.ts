@@ -14,6 +14,10 @@ class MotherAccount {
     this.balanceInit -= amount;
     return this.balanceInit;
   }
+  addInterest(percentage: number): number {
+    this.balanceInit += this.balanceInit * percentage / 100;
+    return this.balanceInit;
+  }
 }
 
 class SonAccount extends MotherAccount {
@@ -25,3 +29,5 @@ class SonAccount extends MotherAccount {
 const son = new SonAccount(1000);
 son.balanceInit;
 console.log(son.oneWithDraw(100));
+
+console.log(son.addInterest(10))
